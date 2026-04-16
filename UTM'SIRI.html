@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Matinée Scientifique</title>
+
+<style>
+
+body{
+font-family:Arial;
+margin:0;
+background:#f2f2f2;
+}
+
+header{
+background:red;
+background-size: cover;
+background-repeat: no-repeat;
+background-position:center;
+color:white;
+text-align:center;
+padding:15px 20px;
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+border-bottom: 100px solid
+
+/* HEADER FIXE */
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+z-index: 1000;
+}
+
+#titre{
+font-size:20px;
+font-weight:bold;
+line-height:0.5;
+}
+
+.container{
+padding:20px;
+
+/* POUR ÉVITER QUE LE CONTENU SOIT CACHÉ */
+margin-top:140px;
+}
+
+input, textarea{
+width:100%;
+padding:10px;
+margin-top:5px;
+margin-bottom:15px;
+border:1px solid #ccc;
+border-radius:5px;
+}
+
+button{
+background:#25D366;
+color:white;
+padding:12px;
+border:none;
+border-radius:5px;
+font-size:16px;
+width:100%;
+cursor:pointer;
+}
+
+button:hover{
+opacity:0.8;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<h1 id="titre">MATINÉE SCIENTIFIQUE</h1>
+<p>Organisée par:</p>
+<p>☆LES ELITES UNIVERSITAIRES☆</p>
+</header>
+
+<div class="container">
+
+<p style="color:green; text-align:center;">
+FORMULAIRE DE DÉPOT DE PROJET
+</p>
+
+<label>Nom complet</label>
+<input type="text" id="nom">
+
+<label>Promotion</label>
+<input type="text" id="Promotion">
+
+<label>Filière</label>
+<input type="text" id="filiere">
+
+<label>Titre du projet</label>
+<input type="text" id="projet">
+
+<label>Résumé du projet</label>
+<textarea id="resume"></textarea>
+
+<label>Nom de l'encadreur</label>
+<input type="text" id="encadreur">
+
+<label>Document du projet (PDF)</label>
+<input type="file">
+
+<button onclick="envoyerWhatsApp()">Soumettre via WhatsApp</button>
+
+</div>
+
+<script>
+
+function envoyerWhatsApp(){
+
+var nom=document.getElementById("nom").value;
+var promotion = document.getElementById("Promotion").value;
+var filiere=document.getElementById("filiere").value;
+var projet=document.getElementById("projet").value;
+var resume=document.getElementById("resume").value;
+var encadreur=document.getElementById("encadreur").value;
+  // Vérification que tous les champs sont remplis
+  if(!nom || !promotion || !filiere || !projet || !resume || !encadreur){
+    alert("Veuillez remplir tous les champs avant d'envoyer le projet.");
+    return;
+
+var numero="243852751395";
+
+var message =
+"Bonjour, je soumets mon projet pour la Matinée Scientifique.\n\n"+
+"Nom: "+nom+"\n"+
+"Promotion: "+promotion+"\n"+
+"Filière: "+filiere+"\n"+
+"Titre du projet: "+projet+"\n"+
+"Résumé: "+resume+"\n"+
+"Encadreur: "+encadreur;
+var url="https://wa.me/"+numero+"?text="+encodeURIComponent(message);
+
+window.open(url, "_blank");
+// ✅ ALERTE POUR CONFIRMATION
+  alert("Merci " + nom + " ! Votre projet a bien été envoyé via WhatsApp.");
+
+}
+
+</script>
+
+</body>
+</html>

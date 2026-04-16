@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ISTM</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f4f6f9;
+    line-height: 1.6;
+}
+
+/* HEADER CORRIGÉ */
+header {
+    background: linear-gradient(90deg, #8B0000, #cc0000);
+    color: white;
+    padding: 10px;
+    text-align: center;
+
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 1px;
+
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+/* SLIDER */
+.slider {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    margin-top: 60px; /* espace pour le header */
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+/* CONTENU */
+.container {
+    width: 90%;
+    max-width: 900px;
+    margin: 30px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+h2 {
+    color: #003366;
+    margin-top: 20px;
+}
+
+ul {
+    margin-left: 20px;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 15px;
+    background: #003366;
+    color: white;
+    margin-top: 30px;
+}
+</style>
+
+</head>
+<body>
+
+<header>
+    <h1>INTERNAT</h1>
+</header>
+
+<!-- SLIDER -->
+<div class="slider">
+  <img src="image2.jpg" class="slide active">
+  <img src="internat.jpg" class="slide">
+  <img src="internat1.jpg" class="slide">
+  <img src="king.jpg" class="slide">
+</div>
+
+<div class="container">
+
+    <h2>La Direction des Œuvres estudiantines</h2>
+    <p>
+        Pour organiser la vie sociale des étudiants et promouvoir leurs activités culturelles et sportives,
+        l'Institut Supérieur de Techniques médicales M'siri 1er dispose d’une Direction des Œuvres estudiantines.
+    </p>
+
+    <p>Cette Direction comprend les services suivants :</p>
+    <ul>
+        <li>Le Bureau d’Internat et d’Externat</li>
+        <li>Le Bureau des Affaires Sociales</li>
+        <li>La Division des Sports et Loisirs</li>
+    </ul>
+
+    <h2>Le Conseil des Œuvres estudiantines</h2>
+    <p>
+        Le Conseil des Œuvres estudiantines est un organe de cogestion de la Direction des Œuvres estudiantines.
+        Il s’occupe :
+    </p>
+
+    <ul>
+        <li>Des problèmes d’accueil et de logement</li>
+        <li>De santé et d’assainissement</li>
+        <li>D’animation culturelle et sportive</li>
+    </ul>
+
+    <h2>Logement</h2>
+    <p>
+        Les cités universitaires disposent des chambres avec lits pour loger des étudiants célibataires.
+        Pour y être logé, il faudra au préalable signer un contrat de bail avec la Direction des Œuvres Estudiantines.
+    </p>
+
+    <p>
+        Toute demande de logement dans les résidences estudiantines doit être faite dans un formulaire ad hoc
+        mis à la disposition des étudiants par la Direction des Œuvres Estudiantines.
+        L’étudiant transmettra sa demande à la Commission de logement, qui décidera de l’attribution du logement.
+    </p>
+
+</div>
+
+<footer>
+  <p>R.D CONGO~LUALABA~BAYEKE</p>
+  <p>BUNKEYA AV.MONT NKULU</p>
+</footer>
+
+<!-- SCRIPT SLIDER -->
+<script>
+let slides = document.querySelectorAll(".slide");
+let index = 0;
+
+function showSlide() {
+    slides.forEach((slide) => {
+        slide.classList.remove("active");
+    });
+
+    index++;
+    if (index >= slides.length) {
+        index = 0;
+    }
+
+    slides[index].classList.add("active");
+}
+
+setInterval(showSlide, 3000);
+</script>
+
+</body>
+</html>

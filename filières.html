@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ISTM</title>
+
+<!-- POLICE PROFESSIONNELLE -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* RESET */
+* {
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+}
+
+/* BODY */
+body {
+ font-family: 'Segoe UI', Tahoma, sans-serif;
+ background: #f7f8fc;
+ color: #333;
+}
+
+/* HEADER AMÉLIORÉ */
+header {
+ background: linear-gradient(90deg, #8B0000, #cc0000);
+ color: white;
+ padding: 15px;
+ text-align: center;
+
+ font-family: 'Montserrat', sans-serif;
+ font-size: 24px;
+ font-weight: 700;
+ letter-spacing: 2px;
+
+ position: fixed;
+ width: 100%;
+ top: 0;
+ z-index: 1000;
+}
+
+/* MAIN */
+main {
+ max-width: 900px;
+ margin: 120px auto 50px;
+ padding: 20px;
+}
+
+/* SECTION */
+section.filieres {
+ background: white;
+ padding: 30px;
+ border-radius: 12px;
+ box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+section.filieres h2 {
+ text-align: center;
+ font-size: 1.8em;
+ color: #003366;
+ margin-bottom: 20px;
+}
+
+/* LISTE */
+ul.filieres-list {
+ list-style: none;
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+ gap: 15px;
+}
+
+ul.filieres-list li {
+ background: #f0f2f5;
+ padding: 15px;
+ border-radius: 10px;
+ text-align: center;
+ font-weight: 500;
+ transition: 0.3s;
+}
+
+ul.filieres-list li a {
+ text-decoration: none;
+ color: inherit;
+ display: block;
+}
+
+ul.filieres-list li:hover {
+ transform: translateY(-5px);
+ box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+/* FOOTER */
+footer {
+ background:#003366;
+ color: white;
+ text-align: center;
+ padding: 20px;
+}
+
+/* RESPONSIVE */
+@media(max-width: 600px){
+ main {
+  margin: 140px 15px 50px;
+ }
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+ISTM M'SIRI 1er
+</header>
+
+<main>
+<section class="filieres">
+
+<h2>Nos Filières</h2>
+
+<ul class="filieres-list">
+  <li><a href="soins.html">Soins généraux</a></li>
+  <li><a href="anesthesie.html">Anesthésie et Réanimation</a></li>
+  <li><a href="sante.html">Santé Communautaire</a></li>
+  <li><a href="labo.html">Techniques de Laboratoire</a></li>
+  <li><a href="sage.html">Sage-femme</a></li>
+  <li><a href="pediatrie.html">Pédiatrie</a></li>
+  <li><a href="nutrition.html">Nutrition et Diététique</a></li>
+</ul>
+
+</section>
+</main>
+
+<footer>
+ <p>R.D CONGO~LUALABA~BAYEKE</p>
+ <p>BUNKEYA-AV.MONT NKULU</p>
+</footer>
+
+</body>
+</html>

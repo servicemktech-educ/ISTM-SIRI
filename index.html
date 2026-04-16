@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ISTM</title>
+
+<style>
+
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* BODY */
+body {
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  background: #f4f6f9;
+  color: #333;
+  margin-top: 120px;
+  padding-bottom: 80px;
+}
+
+/* HEADER */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 80px;
+  background: url('bun.jpg') no-repeat center;
+  background-size: cover;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  z-index: 1000;
+}
+
+.marquee {
+  white-space: nowrap;
+  overflow: hidden;
+  width: 100%;
+}
+
+.marquee h1 {
+  display: inline-block;
+  padding-left: 100%;
+  animation: defile 15s linear infinite;
+  font-size: 22px;
+}
+
+@keyframes defile {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
+.slogan {
+  font-style: italic;
+  font-size: 14px;
+}
+
+/* NAV */
+nav {
+  position: fixed;
+  top: 80px;
+  width: 100%;
+  background: darkred;
+  display: flex;
+  justify-content: center;
+  padding: 6px;
+  z-index: 999;
+}
+
+.menu-icon {
+  width: 40px;
+}
+
+/* SLIDER */
+.slider {
+  position: relative;
+  height: 300px;
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: 1s;
+}
+
+.slide.active {
+  opacity: 1;
+}
+
+/* SECTIONS */
+section {
+  max-width: 1000px;
+  margin: 25px auto;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+h2 {
+  color: #003366;
+  margin-bottom: 15px;
+}
+
+p {
+  line-height: 1.6;
+}
+
+/* BUTTON */
+.btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 8px 15px;
+  background: #003366;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+/* NEWS */
+.news-slider {
+  position: relative;
+  height: 300px;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.news-slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: 1s;
+}
+
+.news-slide.active {
+  opacity: 1;
+}
+
+.news-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.caption {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.6);
+  color: white;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* BOUTON VOIR PLUS */
+.caption a {
+  background: #007bff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: white;
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.caption a:hover {
+  background: #0056b3;
+}
+
+/* TICKER */
+.ticker {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: red;
+  color: white;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  z-index: 9999;
+}
+
+.label {
+  padding: 6px 12px;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.sport { background: green; }
+.com { background: #007bff; }
+.event { background: purple; }
+.info { background: orange; }
+
+.tickerTextWrapper {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+}
+
+#tickerText {
+  display: inline-block;
+  white-space: nowrap;
+  transform: translateX(100%);
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="marquee">
+    <h1>INSTITUT SUPERIEUR DES TECHNIQUES MÉDICALES M'SIRI 1er</h1>
+  </div>
+  <p class="slogan">Sanitas - Scientia - Conscientia</p>
+</header>
+
+<nav>
+  <a href="contact.html">
+    <img src="museba.png" class="menu-icon">
+  </a>
+</nav>
+
+<!-- SLIDER -->
+<div class="slider">
+  <img src="imagine7.jpg" class="slide active">
+  <img src="image3.jpg" class="slide">
+  <img src="image8.jpg" class="slide">
+  <img src="elie.jpg" class="slide"> <!-- corrigé -->
+  <img src="hp.jpg" class="slide">
+    <img src="bu1.jpg" class="slide">
+</div>
+
+<!-- À PROPOS -->
+<section>
+  <h2>🏛️ À propos de nous</h2>
+  <p>L’Institut Supérieur des Techniques Médicales M’SIRI 1er (ISTM M’SIRI)...</p>
+  <a href="voir plus.html" class="btn">Voir plus</a>
+</section>
+
+<!-- MISSION -->
+<section>
+  <h2>🎯 Notre Mission</h2>
+  <p>Former des professionnels compétents et disciplinés.</p>
+  <p>Améliorer le système de santé en RDC.</p>
+</section>
+
+<!-- FILIERES -->
+<section>
+  <h2>Nos Filières</h2>
+  <ul>
+    <li>Sage-femme</li>
+    <li>Techniques de Laboratoire</li>
+    <li>Pédiatrie</li>
+  </ul>
+  <a href="filières.html" class="btn">Voir plus</a>
+</section>
+
+<!-- ACTUALITÉS -->
+<section>
+  <h2>📢 Actualités</h2>
+
+  <div class="news-slider">
+
+    <div class="news-slide active">
+      <img src="image2.jpg">
+      <div class="caption">
+        Inscriptions ouvertes
+        <a href="article1.html">Voir plus</a>
+      </div>
+    </div>
+
+    <div class="news-slide">
+      <img src="recteurs.jpg">
+      <div class="caption">
+        Nomination du nouveau Recteur
+        <a href="article2.html">Voir plus</a>
+      </div>
+    </div>
+    
+    <div class="news-slide">
+      <img src="recteur3.jpg">
+      <div class="caption">
+      </div>
+    </div>
+
+    <div class="news-slide">
+      <img src="image8.jpg">
+      <div class="caption">
+        Conférence scientifique
+        <a href="article3.html">Voir plus</a>
+      </div>
+    </div>
+    <div class="news-slide">
+      <img src="agro.jpg">
+      <div class="caption">
+        Deux anciens étudiants engagés activement dans la promotion de l’agriculture durable 
+        <a href="article3.html">Voir plus</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <span id="tickerLabel" class="label sport">SPORT</span>
+  <div class="tickerTextWrapper">
+    <span id="tickerText">Chargement...</span>
+  </div>
+</div>
+
+<script>
+
+/* SLIDER PRINCIPAL */
+let slides = document.querySelectorAll('.slide');
+let i = 0;
+
+setInterval(() => {
+  slides[i].classList.remove('active');
+  i = (i + 1) % slides.length;
+  slides[i].classList.add('active');
+}, 4000);
+
+/* NEWS SLIDER */
+let newsSlides = document.querySelectorAll('.news-slide');
+let j = 0;
+
+setInterval(() => {
+  newsSlides[j].classList.remove('active');
+  j = (j + 1) % newsSlides.length;
+  newsSlides[j].classList.add('active');
+}, 4000);
+
+/* TICKER */
+const news = [
+  { type: "SPORT", class: "sport", text: "Tournoi inter-universitaire bientôt à UTM'SIRI 1er" },
+  { type: "COMMUNIQUÉ", class: "com", text: "Les inscriptions sont ouvertes pour l’année académique 2026-2027" },
+  { type: "ÉVÉNEMENT", class: "event", text: "Matinée scientifique prévue cette semaine" },
+  { type: "INFO", class: "info", text: "Bienvenue à tous les nouveaux étudiants" }
+];
+
+let k = 0;
+
+function animateTicker() {
+  const label = document.getElementById("tickerLabel");
+  const text = document.getElementById("tickerText");
+
+  let msg = news[k];
+
+  label.innerText = msg.type;
+  label.className = "label " + msg.class;
+
+  text.innerText = msg.text;
+
+  text.style.transition = "none";
+  text.style.transform = "translateX(100%)";
+
+  setTimeout(() => {
+    let duration = 9000;
+    text.style.transition = `transform ${duration}ms linear`;
+    text.style.transform = "translateX(-100%)";
+  }, 100);
+
+  k = (k + 1) % news.length;
+}
+
+setInterval(animateTicker, 9500);
+animateTicker();
+
+</script>
+
+</body>
+</html>

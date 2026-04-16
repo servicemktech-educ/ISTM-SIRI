@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ISTM</title>
+
+<style>
+
+/* RESET */
+* {
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+}
+h3 {
+  color: white;
+  font-size: 18px;
+  margin: 10px 0;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+}
+/* BODY */
+body {
+ font-family: 'Segoe UI', Tahoma, sans-serif;
+ background: #f7f8fc;
+ color: #333;
+}
+
+/* HEADER */
+header {
+ background: linear-gradient(90deg, #8B0000, #cc0000);
+ color: white;
+ padding: 15px;
+ text-align: center;
+ font-size: 22px;
+ font-weight: bold;
+ position: fixed;
+ width: 100%;
+ top: 0;
+ z-index: 1000;
+}
+
+/* CONTAINER */
+.container {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ min-height: 100vh;
+ padding: 80px 15px; /* espace header */
+}
+
+/* LOGIN BOX */
+.login {
+ background: url('museba.jpg') no-repeat center center;
+ background-size: cover;
+ padding: 25px;
+ border-radius: 15px;
+ width: 100%;
+ max-width: 400px; /* 🔥 clé pour PC */
+ text-align: center;
+ backdrop-filter: blur(8px);
+}
+
+/* INPUTS */
+input {
+ width: 100%;
+ padding: 14px;
+ margin: 10px 0;
+ border-radius: 8px;
+ font-size: 16px;
+ background: rgba(255,255,255,0.9);
+ border: 2px solid greenyellow;
+}
+
+/* BUTTON */
+button {
+ width: 100%;
+ padding: 15px;
+ font-size: 16px;
+ font-weight: bold;
+ border-radius: 10px;
+ border: none;
+ cursor: pointer;
+ background: linear-gradient(90deg, #004080, #0099ff);
+ color: white;
+ transition: 0.3s;
+ margin-top: 10px;
+}
+
+button:hover {
+ transform: scale(1.03);
+}
+
+/* SPINNER */
+.spinner {
+ width: 20px;
+ height: 20px;
+ border: 3px solid white;
+ border-top: 3px solid transparent;
+ border-radius: 50%;
+ animation: spin 1s linear infinite;
+ display: none;
+ margin: auto;
+}
+
+@keyframes spin {
+ 0% { transform: rotate(0deg); }
+ 100% { transform: rotate(360deg); }
+}
+
+/* FOOTER */
+footer {
+ background:#003366;
+ color: white;
+ text-align: center;
+ padding: 10px;
+ position: fixed;
+ bottom: 0;
+ width: 100%;
+ font-size: 14px;
+}
+
+/* 📱 RESPONSIVE (petits écrans) */
+@media (max-width: 500px) {
+ header {
+   font-size: 18px;
+ }
+
+ .login {
+   padding: 20px;
+ }
+
+ input, button {
+   font-size: 14px;
+ }
+}
+
+</style>
+</head>
+
+<body>
+
+<header>📚 Bibliothèque</header>
+
+<div class="container">
+ <div class="login">
+
+  <!-- CONNEXION -->
+  <input type="text" id="user" placeholder="Nom d’utilisateur">
+  <input type="password" id="pass" placeholder="Mot de passe">
+
+  <button onclick="login()">
+    <span id="btnText">Se connecter</span>
+    <div class="spinner" id="spinner"></div>
+  </button>
+
+  <hr style="margin:20px 0;">
+
+  <!-- INSCRIPTION -->
+  <h3 id="title">Créer un compte</h3>
+
+  <input type="text" id="newUser" placeholder="Votre nom">
+  <input type="password" id="newPass" placeholder=" Votre mot de passe">
+
+  <button onclick="register()">S’inscrire</button>
+
+ </div>
+</div>
+
+<footer>
+ R.D CONGO ~ LUALABA ~ BAYEKE<br>
+ BUNKEYA AV. MONT NKULU
+</footer>
+
+<script>
+
+// INSCRIPTION
+function register(){
+  let newUser = document.getElementById("newUser").value;
+  let newPass = document.getElementById("newPass").value;
+
+  if(newUser === "" || newPass === ""){
+    alert("Remplis tous les champs !");
+    return;
+  }
+
+  let users = JSON.parse(localStorage.getItem("users")) || [];
+
+  let exist = users.find(u => u.username === newUser);
+
+  if(exist){
+    alert("Utilisateur déjà existant !");
+    return;
+  }
+
+  users.push({ username: newUser, password: newPass });
+
+  localStorage.setItem("users", JSON.stringify(users));
+
+  alert("Compte créé !");
+}
+
+
+// CONNEXION
+function login(){
+  let user = document.getElementById("user").value;
+  let pass = document.getElementById("pass").value;
+
+  let btnText = document.getElementById("btnText");
+  let spinner = document.getElementById("spinner");
+
+  btnText.style.display = "none";
+  spinner.style.display = "block";
+
+  // 🔐 ADMIN DIRECT
+  if(user === "admin" && pass === "admin123"){
+    setTimeout(() => {
+      window.location.href = "admin.html";
+    }, 1000);
+    return;
+  }
+
+  let users = JSON.parse(localStorage.getItem("users")) || [];
+
+  setTimeout(() => {
+    let found = users.find(u => u.username === user && u.password === pass);
+
+    if(found){
+      window.location.href = "bibliothèque.html";
+    } else {
+      alert("Compte introuvable !");
+      btnText.style.display = "block";
+      spinner.style.display = "none";
+    }
+  }, 1500);
+}
+
+</script>
+
+</body>
+</html>

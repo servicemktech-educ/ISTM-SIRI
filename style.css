@@ -1,0 +1,253 @@
+/* ================= RESET ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ================= BODY ================= */
+body {
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  line-height: 1.6;
+  background: #f9f9f9;
+  color: #333;
+}
+
+/* ================= HEADER ================= */
+header {
+  background: red;
+  color: white;
+  text-align: center;
+  padding: 15px 20px;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 60px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+/* ================= NAV ================= */
+nav {
+background: url('bun.png') no-repeat center center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 10px 30px; /* corrigé 5.px -> 5px */
+  position: sticky;
+  top: 60px;
+  width: 100%;
+  z-index: 900;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  flex-wrap: wrap; /* s'adapte aux écrans plus petits */
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 8px 12px;
+  border-radius: 5px;
+  transition: background 0.3s, color 0.3s;
+}
+
+nav a:hover {
+  color: #00c3ff;
+  background: rgba(255,255,255,0.1);
+}
+.navbar {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+
+  /* TRANSPARENCE */
+  background: url('bun.jpg') no-repeat center center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  padding: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* LIENS */
+.navbar a {
+  text-decoration: none;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 25px;
+  font-weight: bold;
+
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+
+  transition: all 0.25s ease;
+  display: inline-block;
+}
+
+/* HOVER */
+.navbar a:hover {
+  background: rgba(255, 255, 255, 0.9);
+  color: #004080;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+/* CLIC */
+.navbar a:active {
+  transform: scale(0.92);
+}
+
+/* LIEN ACTIF */
+.navbar a.active {
+  background: rgba(0, 170, 255, 0.8);
+  color: white;
+  box-shadow: 0 0 12px rgba(0,170,255,0.6);
+}
+/* ================= SECTION ================= */
+section {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 40px 20px;
+  text-align: center;
+  max-width: 1200px;
+  margin: auto;
+}
+/* TITRE DÉFILANT PROPRE */
+.marquee {
+  white-space: nowrap;
+  overflow: hidden;
+  width: 100%;
+}
+
+.marquee h1 {
+  display: inline-block;
+  padding-left: 100%;
+  animation: defile 15s linear infinite;
+  font-size: 22px;
+}
+
+@keyframes defile {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
+/* ================= SLIDER ================= */
+.slider {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: 30px auto;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.slide {
+  width: 100%;
+  display: none;
+  transition: opacity 0.5s ease;
+}
+
+.slide.active {
+  display: block;
+  opacity: 1;
+}
+
+/* ================= LISTES ================= */
+ul {
+  list-style: none;
+  padding: 10px;
+}
+
+li {
+  margin: 10px 0;
+}
+
+/* ================= FORMULAIRES ================= */
+input, select, button {
+  padding: 12px;
+  margin: 8px 0;
+  width: 80%;
+  max-width: 400px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.3s, box-shadow 0.3s;
+}
+
+input:focus, select:focus {
+  border-color: #004080;
+  box-shadow: 0 0 5px rgba(0,64,128,0.3);
+}
+
+button, .btn {
+  background: #004080;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover, .btn:hover {
+  background: #002050;
+}
+
+/* ================= FOOTER ================= */
+footer {
+  background:#003366;;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* ================= CHECKBOX ================= */
+label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+label input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #004080; /* couleur moderne pour la case */
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px 15px;
+  }
+
+  input, select, button {
+    width: 100%;
+  }
+
+  header {
+    font-size: 1.3rem;
+  }
+  h1 {
+  font-size: 32px;
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 22px;
+  }
+}
+}

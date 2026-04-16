@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Admin -ISTM</title>
+
+<style>
+body {
+  font-family: Arial;
+  background: #f4f6fb;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  color: #004080;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  overflow-x: auto;
+  display: block;
+}
+
+th, td {
+  padding: 12px;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
+th {
+  background: #004080;
+  color: white;
+}
+
+button {
+  padding: 5px 10px;
+  background: red;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background: darkred;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>👤 Liste des utilisateurs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nom d'utilisateur</th>
+      <th>Mot de passe</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody id="userTable"></tbody>
+</table>
+
+<script>
+
+// afficher les utilisateurs
+function loadUsers(){
+  let users = JSON.parse(localStorage.getItem("users")) || [];
+
+  let table = document.getElementById("userTable");
+  table.innerHTML = "";
+
+  users.forEach((user, index) => {
+    table.innerHTML += `
+      <tr>
+        <td>${user.username}</td>
+        <td>${user.password}</td>
+        <td><button onclick="deleteUser(${index})">Supprimer</button></td>
+      </tr>
+    `;
+  });
+}
+
+// supprimer utilisateur
+function deleteUser(index){
+  let users = JSON.parse(localStorage.getItem("users")) || [];
+
+  users.splice(index, 1);
+
+  localStorage.setItem("users", JSON.stringify(users));
+
+  loadUsers();
+}
+
+// charger au démarrage
+loadUsers();
+
+</script>
+
+</body>
+</html>

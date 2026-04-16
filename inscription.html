@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ISTM</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* RESET */
+* {
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+}
+
+/* BODY */
+body {
+ font-family: 'Segoe UI', Tahoma, sans-serif;
+ background: #f7f8fc;
+ color: #333;
+}
+
+/* HEADER */
+header {
+ background: linear-gradient(90deg, #8B0000, #cc0000);
+ color: white;
+ padding: 15px;
+ text-align: center;
+
+ font-family: 'Montserrat', sans-serif;
+ font-size: 24px;
+ font-weight: 700;
+ letter-spacing: 2px;
+
+ position: fixed;
+ width: 100%;
+ top: 0;
+ z-index: 1000;
+}
+
+/* SECTION */
+#inscription {
+ max-width: 700px;
+ margin: 100px auto 40px;
+ background: white;
+ padding: 20px;
+ border-radius: 10px;
+ box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+/* FORM */
+form {
+ display: grid;
+ gap: 10px;
+}
+
+input, select {
+ padding: 10px;
+ border: 1px solid #ccc;
+ border-radius: 5px;
+ width: 100%;
+}
+
+input[type="checkbox"] {
+ width: auto;
+}
+
+.check {
+ display: flex;
+ align-items: center;
+ gap: 8px;
+ font-weight: 500;
+}
+
+#codeBox {
+ display: none;
+}
+
+button {
+ padding: 12px;
+ background: #25D366;
+ color: white;
+ border: none;
+ border-radius: 5px;
+ cursor: pointer;
+}
+
+button:hover {
+ background: #1ebe5d;
+}
+
+footer {
+ background:#003366;
+ color: white;
+ text-align: center;
+ padding: 20px;
+}
+
+@media(max-width: 600px){
+ #inscription {
+   margin: 90px 10px;
+ }
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+ ISTM M'SIRI 1er
+</header>
+
+<section id="inscription">
+<h2>Formulaire d'inscription</h2>
+
+<form id="form">
+
+<input type="text" id="nom" placeholder="Nom" required>
+<input type="text" id="postnom" placeholder="Post-nom" required>
+<input type="text" id="prenom" placeholder="Prénom" required>
+
+<select id="sexe" required>
+<option value="">Sexe</option>
+<option>Masculin</option>
+<option>Féminin</option>
+</select>
+
+<input type="date" id="date" required>
+<input type="text" id="lieu" placeholder="Lieu de naissance" required>
+
+<label class="check">
+<input type="checkbox" id="ancien">
+Ancien
+</label>
+
+<div id="codeBox">
+<input type="text" id="code" placeholder="Code de validation">
+</div>
+
+<input type="text" id="classe" placeholder="Classe" required>
+<input type="text" id="quartier" placeholder="Quartier" required>
+<input type="text" id="ecole" placeholder="École de provenance" required>
+<input type="text" id="option" placeholder="Option" required>
+<input type="number" id="pourcentage" placeholder="Pourcentage" required>
+
+<select id="filiere">
+<option value="">Choisir une filière</option>
+<option value="sciences_infirmieres">Sciences infirmières</option>
+<option value="sante_publique">Santé publique</option>
+<option value="laboratoire_medical">Laboratoire médical</option>
+<option value="soins_generaux">Soins généraux</option>
+<option value="anesthesie_reanimation">Anesthésie et Réanimation</option>
+<option value="sante_communautaire">Santé Communautaire</option>
+<option value="techniques_laboratoire">Techniques de Laboratoire</option>
+<option value="pediatrie">Pédiatrie</option>
+<option value="nutrition_dietetique">Nutrition et Diététique</option>
+<option value="sage_femme">Sage-femme</option>
+</select>
+
+<input type="text" id="tuteur" placeholder="Nom du tuteur" required>
+<input type="tel" id="numtuteur" placeholder="Numéro du tuteur" required>
+
+<button type="submit">Envoyer via WhatsApp</button>
+
+</form>
+</section>
+
+<footer>
+<p>R.D CONGO~LUALABA~BAYEKE</p>
+<p>BUNKEYA-AV.MONT NKULU</p>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
